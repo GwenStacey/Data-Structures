@@ -68,7 +68,7 @@ class DoublyLinkedListTests(unittest.TestCase):
         node_2.prev = node_1
         node_3.prev = node_2
 
-        node_2.delete()
+        node_2.reset_links()
 
         self.assertEqual(node_1.next, node_3)
         self.assertEqual(node_3.prev, node_1)
