@@ -85,9 +85,10 @@ class DoublyLinkedList:
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
     def remove_from_tail(self):
-        old_tail = self.tail.value
+        value = self.tail.value
         self.delete(self.tail)
-        return old_tail
+        return value
+        
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List."""
@@ -124,7 +125,16 @@ class DoublyLinkedList:
             self.tail.next = None
         else:
             node.reset_links()
-        
+    
+    def printMiddle(self): 
+        slow_ptr = self.head 
+        fast_ptr = self.head 
+  
+        if self.head is not None: 
+            while (fast_ptr.next is not None and fast_ptr.next.next is not None): 
+                fast_ptr = fast_ptr.next.next
+                slow_ptr = slow_ptr.next
+            print("The middle element is: ", slow_ptr.value) 
         
     """Returns the highest value currently in the list"""
     def get_max(self):
@@ -140,7 +150,7 @@ class DoublyLinkedList:
             else:
                if curr_node.value > highest:
                     highest = curr_node.value 
-        return print(highest)
+        return highest
         
 
     
